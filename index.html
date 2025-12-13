@@ -25,7 +25,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="font-bold text-xl text-blue-600">SB.</div>
+                <a href="#" class="font-bold text-xl text-blue-600">SB.</a>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
@@ -37,7 +37,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="menu-btn" class="text-slate-600 hover:text-blue-600 focus:outline-none">
+                    <button id="menu-btn" class="text-slate-600 hover:text-blue-600 focus:outline-none p-2">
                         <i data-lucide="menu"></i>
                     </button>
                 </div>
@@ -79,48 +79,41 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 border-t border-slate-200 mt-8">
+            <!-- Stats Grid (Fixed) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-slate-200 mt-8">
+                <!-- Problems Solved -->
                 <div>
                     <p class="text-2xl font-bold text-blue-600">250+</p>
                     <p class="text-sm text-slate-500">Problems Solved</p>
                 </div>
-               <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 border-t border-slate-200 mt-8">
-    
-    <div>
-        <p class="text-2xl font-bold text-blue-600">250+</p>
-        <p class="text-sm text-slate-500">Problems Solved</p>
-    </div>
 
-    <!-- LeetCode -->
-    <div>
-        <a href="https://leetcode.com/u/swyam123/"
-           target="_blank"
-           rel="noreferrer"
-           class="text-lg font-bold text-blue-600 hover:underline hover:text-blue-700 transition">
-            swyam123
-        </a>
-        <p class="text-sm text-slate-500">LeetCode</p>
-    </div>
+                <!-- LeetCode -->
+                <div>
+                    <a href="https://leetcode.com/u/swyam123/"
+                       target="_blank"
+                       rel="noreferrer"
+                       class="text-lg font-bold text-blue-600 hover:underline hover:text-blue-700 transition block">
+                        swyam123
+                    </a>
+                    <p class="text-sm text-slate-500">LeetCode</p>
+                </div>
 
-    <!-- HackerRank -->
-    <div>
-        <a href="https://www.hackerrank.com/profile/kg791026"
-           target="_blank"
-           rel="noreferrer"
-           class="text-lg font-bold text-blue-600 hover:underline hover:text-green-600 transition">
-            kg791026
-        </a>
-        <p class="text-sm text-slate-500">HackerRank</p>
-    </div>
-
-</div>
-
+                <!-- HackerRank -->
+                <div>
+                    <a href="https://www.hackerrank.com/profile/kg791026"
+                       target="_blank"
+                       rel="noreferrer"
+                       class="text-lg font-bold text-blue-600 hover:underline hover:text-green-600 transition block">
+                        kg791026
+                    </a>
+                    <p class="text-sm text-slate-500">HackerRank</p>
+                </div>
             </div>
         </div>
         
         <!-- Hero Visual -->
         <div class="flex-1 flex justify-center">
-            <div class="w-64 h-64 md:w-80 md:h-80 bg-blue-100 rounded-full flex items-center justify-center relative overflow-hidden ring-8 ring-blue-50">
+            <div class="w-64 h-64 md:w-80 md:h-80 bg-blue-100 rounded-full flex items-center justify-center relative overflow-hidden ring-8 ring-blue-50 shadow-inner">
                 <i data-lucide="code-2" width="120" height="120" class="text-blue-500 opacity-80"></i>
             </div>
         </div>
@@ -201,7 +194,7 @@
                     <div class="p-6 flex-1">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-bold text-slate-900">E-commerce Website</h3>
-                            <a href="https://github.com/swyam200/E-commerce-website" target="_blank" class="text-slate-400 hover:text-blue-600">
+                            <a href="https://github.com/swyam200/E-commerce-website" target="_blank" class="text-slate-400 hover:text-blue-600 transition">
                                 <i data-lucide="external-link" width="20"></i>
                             </a>
                         </div>
@@ -231,7 +224,7 @@
                     <div class="p-6 flex-1">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-bold text-slate-900">URL Shortener</h3>
-                            <a href="https://github.com/swyam200/url-shortner" class="text-slate-400 hover:text-blue-600">
+                            <a href="https://github.com/swyam200/url-shortner" class="text-slate-400 hover:text-blue-600 transition">
                                 <i data-lucide="external-link" width="20"></i>
                             </a>
                         </div>
@@ -260,7 +253,7 @@
                     <div class="p-6 flex-1">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-bold text-slate-900">Weather App</h3>
-                            <a href="https://github.com/swyam200/weather-app" target="_blank" class="text-slate-400 hover:text-blue-600">
+                            <a href="https://github.com/swyam200/weather-app" target="_blank" class="text-slate-400 hover:text-blue-600 transition">
                                 <i data-lucide="external-link" width="20"></i>
                             </a>
                         </div>
@@ -321,36 +314,35 @@
         // Mobile Menu Toggle Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = menuBtn.querySelector('i');
+        
+        let isMenuOpen = false;
 
         menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
+            isMenuOpen = !isMenuOpen;
             
-            if (isHidden) {
-                // Show Menu
+            if (isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
-                // Change icon to X (close)
-                menuIcon.setAttribute('data-lucide', 'x');
+                // Replace content with 'X' icon
+                menuBtn.innerHTML = '<i data-lucide="x"></i>';
             } else {
-                // Hide Menu
                 mobileMenu.classList.add('hidden');
-                // Change icon back to Menu
-                menuIcon.setAttribute('data-lucide', 'menu');
+                // Replace content with 'Menu' icon
+                menuBtn.innerHTML = '<i data-lucide="menu"></i>';
             }
-            // Re-render the icon we just changed
+            
+            // Re-run createIcons to render the new icon
             lucide.createIcons();
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
+                isMenuOpen = false;
                 mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
+                menuBtn.innerHTML = '<i data-lucide="menu"></i>';
                 lucide.createIcons();
             });
         });
     </script>
 </body>
-
 </html>
-
